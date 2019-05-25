@@ -37,7 +37,7 @@ def gap_statistic(df, max_k=10):
 		ref = df.apply(get_rand_data)
 		ref_inertia = iter_kmeans(ref, n_clusters=k).mean()
 
-		gap = log(ref_inertia - km_act.inertia_)
+		gap = log(ref_inertia) - log(km_act.inertia_)
 
 		print "Ref: %s   Act: %s  Gap: %s" % ( ref_inertia, km_act.inertia_, gap)
 		gaps[k] = gap
